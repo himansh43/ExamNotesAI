@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken'
 
 export const verifyToken=async(req,res,next)=>{
     const token= req.cookies?.examNotesToken
+    console.log("token in protected routes is",token)
  
     if(!token){
         return res.status(400).json({message:"Unauthorized", success:false,})
