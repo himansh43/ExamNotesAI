@@ -32,10 +32,10 @@ const Login = () => {
       setError("");
 
       const signupWithPopUpresponse = await signInWithPopup(auth, provider);
-      console.log("signupopup data ", signupWithPopUpresponse);
       // Extract Firebase user details
       const firebaseUser = signupWithPopUpresponse.user;
 
+      
       const options = {
         method: "POST",
         credentials: "include",

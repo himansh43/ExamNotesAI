@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 
 const login = async (req, res) => {
   try {
-    console.log("req.body is", req.body)
     const displayName = req.body.displayName;
     const email = req.body.email;
     const imageURL= req.body.photoURL;
