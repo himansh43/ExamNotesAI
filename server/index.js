@@ -19,7 +19,7 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-    origin: "https://examnotesaiclient-57b1.onrender.com",
+    origin: process.env.CLIENT_URL,
     credentials: true,
 }));
 
