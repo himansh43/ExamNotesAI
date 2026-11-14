@@ -32,14 +32,23 @@ const Login = () => {
       setError("");
 
       const signupWithPopUpresponse = await signInWithPopup(auth, provider);
+      // Extract Firebase user details
+      const firebaseUser = signupWithPopUpresponse.user;
 
+      const userData = {
+        user: {
+          displayName: firebaseUser.displayName,
+          email: firebaseUser.email,
+          photoURL: firebaseUser.photoURL,
+        },
+      };
       const options = {
         method: "POST",
         credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(signupWithPopUpresponse),
+        body: JSON.stringify(userData),
       };
 
       const apiResponse = await fetch(`${serverUrl}/api/auth/login`, options);
