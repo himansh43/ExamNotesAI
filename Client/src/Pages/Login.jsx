@@ -32,6 +32,9 @@ const Login = () => {
       setError("");
 
       const signupWithPopUpresponse = await signInWithPopup(auth, provider);
+      console.log("signupopup data ", signupWithPopUpresponse);
+      // Extract Firebase user details
+      const firebaseUser = signupWithPopUpresponse.user;
 
       const options = {
         method: "POST",
@@ -39,12 +42,17 @@ const Login = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(signupWithPopUpresponse),
+        body: JSON.stringify({
+          displayName: firebaseUser.displayName,
+          email: firebaseUser.email,
+          photoURL: firebaseUser.photoURL,
+        }),
       };
 
       const apiResponse = await fetch(`${serverUrl}/api/auth/login`, options);
 
       const data = await apiResponse.json();
+      console.log("login data is", data);
 
       if (!apiResponse.ok) {
         throw new Error(data.message || "Authentication failed");

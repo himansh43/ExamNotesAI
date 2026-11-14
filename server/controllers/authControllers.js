@@ -3,12 +3,14 @@ import jwt from "jsonwebtoken";
 
 const login = async (req, res) => {
   try {
-    const displayName = req.body.user.displayName;
-    const email = req.body.user.email;
-    const imageURL= req.body.user.photoURL;
+    console.log("req.body is", req.body)
+    const displayName = req.body.displayName;
+    const email = req.body.email;
+    const imageURL= req.body.photoURL;
     if (!email) {
       return res.status(400).json("UnAuthorized user");
     }
+  
     let user = await userModel.findOne({ email });
     if (!user) {
       user= await userModel.create({
@@ -25,7 +27,8 @@ const login = async (req, res) => {
     res.cookie("examNotesToken", token, {
       httpOnly: true,
       secure: true,
-      samesite: "none",
+      sameSite: "none",
+      path:"/",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
    

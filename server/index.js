@@ -35,6 +35,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 const PORT = process.env.PORT;
+app.get("/", (req, res) => {
+    res.send("ExamNotesAI Server is Running Successfully!");
+});
 app.use("/api/auth", authRouter);
 app.use("/api/user", verifyToken, userRouter);
 app.use("/api/gemini-result", verifyToken, geminiRouter);
