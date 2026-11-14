@@ -3,9 +3,9 @@ import jwt from "jsonwebtoken";
 
 const login = async (req, res) => {
   try {
-    const displayName = req.body.user.displayName;
-    const email = req.body.user.email;
-    const imageURL= req.body.user.photoURL;
+    const displayName = req.body.displayName;
+    const email = req.body.email;
+    const imageURL= req.body.photoURL;
     if (!email) {
       return res.status(400).json("UnAuthorized user");
     }
