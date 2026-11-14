@@ -26,7 +26,7 @@ app.post(
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://examnotesaiclient-57b1.onrender.com",
     credentials: true,
   }),
 );
