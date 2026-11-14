@@ -20,7 +20,7 @@ const app = express();
 app.set("trust proxy", 1);
 // CORS configuration
 app.use(cors({
-    origin: process.env.CLIENT_URL,
+    origin:"https://examnotesaiclient-57b1.onrender.com",
     credentials: true,
 }));
 
