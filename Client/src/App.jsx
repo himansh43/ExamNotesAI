@@ -11,7 +11,7 @@ import PaymentSuccess from "./Pages/PaymentSuccess";
 import PaymentFailed from "./Pages/PaymentFailed";
 import History from "./Pages/History";
 
-export const serverUrl = `http://localhost:8000`;
+export const serverUrl = `https://examnotesaiserver-oerx.onrender.com/`;
 
 const App = () => {
   const user = useSelector((state) => state.userDetails.user);
