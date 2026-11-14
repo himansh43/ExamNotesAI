@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
-import img1 from "../assets/img1.png";
+
 import {
   FaArrowRight,
   FaBrain,
@@ -131,7 +131,7 @@ const HomePage = () => {
 
                 <div className="relative bg-white/10 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-2.5 sm:p-4 shadow-2xl">
                   <img
-                    src={img1}
+                    src="/img1.png"
                     alt="AI-powered exam notes generation"
                     className="w-full h-auto max-h-90 sm:max-h-none object-contain rounded-xl sm:rounded-2xl"
                   />
