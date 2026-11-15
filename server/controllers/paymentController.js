@@ -96,7 +96,9 @@ const stripeWebHook = async (req, res) => {
   }
 
   try {
-    if (event.type === "checkout.session.completed") {
+    if (event.type === "checkout.session.completed" &&
+  event.data.object.payment_status === "paid"
+ ) {
       const session = event.data.object;
 
       const { userId, credits } = session.metadata;
